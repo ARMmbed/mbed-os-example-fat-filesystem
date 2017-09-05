@@ -72,7 +72,7 @@ int main() {
     printf("  %s\r\n", &(de->d_name)[0]);
   }
 
-  printf("Closeing root directory. ");
+  printf("Closing root directory. ");
   error = closedir(dir);
   return_error(error);
   printf("Filesystem Demo complete.\r\n");
