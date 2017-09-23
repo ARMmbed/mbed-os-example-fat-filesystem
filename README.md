@@ -60,6 +60,8 @@ Image: ./BUILD/K64F/gcc_arm/mbed-os-example-fat-filesystem.bin
 1. Press the reset button to start the program.
 1. Open the UART of the board in your favorite UART viewing program. For example, `screen /dev/ttyACM0`.
 
+**Note:** The default serial port baud rate is 9600 bit/s.
+
 You see the following output:
 
 ```
