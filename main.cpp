@@ -39,12 +39,25 @@ int main() {
   FILE* fd = fopen("/fs/numbers.txt", "w");
   errno_error(fd);
 
+  bool writeOK = true;
+
   // write the line number on each line of the file (thus the 1-indexing)
   for (int i = 1; i <= NUM_INTS; i++){
     printf("Writing decimal numbers to a file (%d/%d)\r", i, NUM_INTS);
-    fprintf(fd, "%" FIELD_WIDTH_STR "d\r\n", i);
+    int numCharsWritten = fprintf(fd, "%" FIELD_WIDTH_STR "d\r\n", i);
+
+    if (numCharsWritten < 0)
+    {
+    	printf("\nERROR writing to file. (fprintf() returned %i.)\r\n",
+    			numCharsWritten);
+    	writeOK = false;
+    	break;
+    }
   }
-  printf("Writing decimal numbers to a file (20/20) done.\r\n");
+
+  if (writeOK){
+	  printf("\r\nDone.\r\n");
+  }
 
   printf("Closing file.");
   fclose(fd);
