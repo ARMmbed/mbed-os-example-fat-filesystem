@@ -69,9 +69,9 @@ int main() {
   errno_error(fd);
 
   printf("Dumping file to screen.\r\n");
-  char buff[BUF_SIZE_BYTES] = {0};
+  char buff[BUF_SIZE_BYTES];
   while (!feof(fd)){
-    int size = fread(&buff[0], 1, sizeof buff - 1, fd);
+    int size = fread(&buff[0], 1, sizeof buff, fd);
     fwrite(&buff[0], 1, size, stdout);
   }
   printf("EOF.\r\n");
