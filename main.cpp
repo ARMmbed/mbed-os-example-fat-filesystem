@@ -43,12 +43,12 @@ int main() {
 
   // write the line number on each line of the file (thus the 1-indexing)
   for (int i = 1; i <= NUM_INTS; i++){
-    printf("Writing decimal numbers to a file (%d/%d)\r", i, NUM_INTS);
+    printf("\rWriting decimal numbers to a file (%d/%d)", i, NUM_INTS);
     int numCharsWritten = fprintf(fd, "%" FIELD_WIDTH_STR "d\r\n", i);
 
     if (numCharsWritten < 0)
     {
-    	printf("\nERROR writing to file. (fprintf() returned %i.)\r\n",
+    	printf("\r\n  ERROR writing to file. (fprintf() returned %i.)\r\n",
     			numCharsWritten);
     	writeOK = false;
     	break;
@@ -56,7 +56,7 @@ int main() {
   }
 
   if (writeOK){
-	  printf("\r\nDone.\r\n");
+	  printf(". done.\r\n");
   }
 
   printf("Closing file.");
