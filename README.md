@@ -123,14 +123,4 @@ SDBlockDevice bd(PinName mosi, PinName miso, PinName sclk, PinName cs);
 
 ## Troubleshooting
 
-1. Make sure `mbed-cli` is working correctly and its version is newer than `1.0.0`.
-
- ```
- mbed --version
- ```
-
- If not, update it:
-
- ```
- pip install mbed-cli --upgrade
- ```
+If you have problems, you can review the [documentation](https://os.mbed.com/docs/latest/tutorials/debugging.html) for suggestions on what could be wrong and how to fix it.
