@@ -60,6 +60,8 @@ Image: ./BUILD/K64F/gcc_arm/mbed-os-example-fat-filesystem.bin
 1. Press the reset button to start the program.
 1. Open the UART of the board in your favorite UART viewing program. For example, `screen /dev/ttyACM0`.
 
+**Note:** The default serial port baud rate is 9600 bit/s.
+
 You see the following output:
 
 ```
@@ -123,14 +125,4 @@ SDBlockDevice bd(PinName mosi, PinName miso, PinName sclk, PinName cs);
 
 ## Troubleshooting
 
-1. Make sure `mbed-cli` is working correctly and its version is newer than `1.0.0`.
-
- ```
- mbed --version
- ```
-
- If not, update it:
-
- ```
- pip install mbed-cli --upgrade
- ```
+If you have problems, you can review the [documentation](https://os.mbed.com/docs/latest/tutorials/debugging.html) for suggestions on what could be wrong and how to fix it.
