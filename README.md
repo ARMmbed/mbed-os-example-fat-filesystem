@@ -1,8 +1,8 @@
-# Obsoleted
+# Obsolete
 
-**This repository have been superceded by following application:**
+**The following application has superseded this repository:**
 
-* [mbed OS example Filesystem](https://github.com/ARMmbed/mbed-os-example-filesystem)
+* [Mbed OS file system example](https://github.com/ARMmbed/mbed-os-example-filesystem)
 
 # Getting started with the FAT file system on Mbed OS
 
