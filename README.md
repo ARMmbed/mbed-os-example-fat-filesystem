@@ -1,3 +1,9 @@
+# Obsoleted
+
+**This repository have been superceded by following application:**
+
+* [mbed OS example Filesystem](https://github.com/ARMmbed/mbed-os-example-filesystem)
+
 # Getting started with Fat filesystem on mbed OS
 
 This guide reviews the steps to get the FAT filesystem working on an mbed OS platform.
