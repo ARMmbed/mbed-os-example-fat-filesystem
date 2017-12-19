@@ -1,3 +1,9 @@
+# Obsolete
+
+**The following application has superseded this repository:**
+
+* [Mbed OS file system example](https://github.com/ARMmbed/mbed-os-example-filesystem)
+
 # Getting started with the FAT file system on Mbed OS
 
 This guide reviews the steps to get the FAT file system working on an Mbed OS platform.
