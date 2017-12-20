@@ -1,12 +1,18 @@
-# Getting started with Fat filesystem on mbed OS
+# Obsolete
 
-This guide reviews the steps to get the FAT filesystem working on an mbed OS platform.
+**The following application has superseded this repository:**
 
-Please install [mbed CLI](https://github.com/ARMmbed/mbed-cli#installing-mbed-cli).
+* [Mbed OS file system example](https://github.com/ARMmbed/mbed-os-example-filesystem)
+
+# Getting started with the FAT file system on Mbed OS
+
+This guide reviews the steps to get the FAT file system working on an Mbed OS platform.
+
+Please install [Mbed CLI](https://os.mbed.com/docs/latest/tools/setup.html).
 
 ## Hardware requirements
 
-This exmaple uses a RAM backed FAT filesystem. The FAT filesystem requires at least 128 512-byte blocks for a total of 64KB of space. This space is backed by the HeapBlockDevice, which uses a target's heap for storage. Therefore, to support this example, a target must have at least 64KB of space usable by as heap. As there is more than just the heap in a device's ram this translates to the requirement that a target's RAM must be at least 96KB large.
+This example uses a RAM-backed FAT file system. The FAT file system requires at least 128 512-byte blocks for a total of 64KB of space. The HeapBlockDevice, which uses a target's heap for storage, backs this space. Therefore, to support this example, a target must have at least 64KB of space usable by as heap. Because there is more than just the heap in a device's RAM, this translates to the requirement that a target's RAM must be at least 96KB large.
 
 ## Import the example application
 
@@ -55,10 +61,12 @@ Image: ./BUILD/K64F/gcc_arm/mbed-os-example-fat-filesystem.bin
 
 ### Program your board
 
-1. Connect your mbed device to the computer over USB.
-1. Copy the binary file to the mbed device.
+1. Connect your Mbed device to the computer over USB.
+1. Copy the binary file to the Mbed device.
 1. Press the reset button to start the program.
 1. Open the UART of the board in your favorite UART viewing program. For example, `screen /dev/ttyACM0`.
+
+**Note:** The default serial port baud rate is 9600 bit/s.
 
 You see the following output:
 
@@ -123,14 +131,4 @@ SDBlockDevice bd(PinName mosi, PinName miso, PinName sclk, PinName cs);
 
 ## Troubleshooting
 
-1. Make sure `mbed-cli` is working correctly and its version is newer than `1.0.0`.
-
- ```
- mbed --version
- ```
-
- If not, update it:
-
- ```
- pip install mbed-cli --upgrade
- ```
+If you have problems, you can review the [documentation](https://os.mbed.com/docs/latest/tutorials/debugging.html) for suggestions on what could be wrong and how to fix it.
