@@ -4,6 +4,10 @@
 #include <stdio.h>
 #include <errno.h>
 
+#define NUM_INTS         (20)
+#define FIELD_WIDTH_STR  "2"
+#define BUF_SIZE_BYTES   (16)
+
 HeapBlockDevice bd(128 * 512, 512);
 FATFileSystem fs("fs");
 
@@ -36,11 +40,25 @@ int main() {
   FILE* fd = fopen("/fs/numbers.txt", "w");
   errno_error(fd);
 
-  for (int i = 0; i < 20; i++){
-    printf("Writing decimal numbers to a file (%d/20)\r", i);
-    fprintf(fd, "%d\r\n", i);
+  bool writeOK = true;
+
+  // write the line number on each line of the file (thus the 1-indexing)
+  for (int i = 1; i <= NUM_INTS; i++){
+    printf("\rWriting decimal numbers to a file (%d/%d)", i, NUM_INTS);
+    int numCharsWritten = fprintf(fd, "%" FIELD_WIDTH_STR "d\r\n", i);
+
+    if (numCharsWritten < 0)
+    {
+    	printf("\r\n  ERROR writing to file. (fprintf() returned %i.)\r\n",
+    			numCharsWritten);
+    	writeOK = false;
+    	break;
+    }
   }
-  printf("Writing decimal numbers to a file (20/20) done.\r\n");
+
+  if (writeOK){
+	  printf(". done.\r\n");
+  }
 
   printf("Closing file.");
   fclose(fd);
@@ -51,9 +69,9 @@ int main() {
   errno_error(fd);
 
   printf("Dumping file to screen.\r\n");
-  char buff[16] = {0};
+  char buff[BUF_SIZE_BYTES];
   while (!feof(fd)){
-    int size = fread(&buff[0], 1, 15, fd);
+    int size = fread(&buff[0], 1, sizeof buff, fd);
     fwrite(&buff[0], 1, size, stdout);
   }
   printf("EOF.\r\n");
